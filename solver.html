@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver | Backtracking Algorithm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel: Sudoku Grid -->
+        <div class="grid-panel">
+            <div class="panel-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <h1>Sudoku Solver</h1>
+                </div>
+                <p class="subtitle">Enter your puzzle below and solve it using backtracking algorithm</p>
+            </div>
+            
+            <div class="sudoku-container">
+                <!-- Column Labels -->
+                <div class="grid-header">
+                    <div class="column-label">A</div>
+                    <div class="column-label">B</div>
+                    <div class="column-label">C</div>
+                    <div class="column-label">D</div>
+                    <div class="column-label">E</div>
+                    <div class="column-label">F</div>
+                    <div class="column-label">G</div>
+                    <div class="column-label">H</div>
+                    <div class="column-label">I</div>
+                </div>
+                
+                <!-- Main Grid -->
+                <div class="grid-wrapper">
+                    <!-- Row Labels -->
+                    <div class="row-labels">
+                        <div class="row-label">1</div>
+                        <div class="row-label">2</div>
+                        <div class="row-label">3</div>
+                        <div class="row-label">4</div>
+                        <div class="row-label">5</div>
+                        <div class="row-label">6</div>
+                        <div class="row-label">7</div>
+                        <div class="row-label">8</div>
+                        <div class="row-label">9</div>
+                    </div>
+                    
+                    <!-- Sudoku Grid -->
+                    <div class="grid-main">
+                        <div id="sudoku-grid"></div>
+                    </div>
+                </div>
+                
+                <!-- Stats Panel -->
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value" id="empty-cells">81</div>
+                        <div class="stat-label">Empty Cells</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="backtracks">0</div>
+                        <div class="stat-label">Backtracks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="time-taken">0</div>
+                        <div class="stat-label">Time (ms)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Panel: Controls -->
+        <div class="controls-panel">
+            <div class="controls-header">
+                <h2><i class="fas fa-sliders-h"></i> Controls</h2>
+                <p class="controls-subtitle">Use these controls to interact with the Sudoku solver</p>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="control-group">
+                <h3 class="control-title">
+                    <i class="fas fa-play-circle"></i>
+                    Solve Actions
+                </h3>
+                <div class="action-buttons">
+                    <button class="action-btn btn-solve" id="solve-btn">
+                        <i class="fas fa-robot"></i>
+                        Solve Sudoku
+                    </button>
+                    <button class="action-btn btn-clear" id="clear-btn">
+                        <i class="fas fa-eraser"></i>
+                        Clear All
+                    </button>
+                    <button class="action-btn btn-reset" id="reset-btn">
+                        <i class="fas fa-redo"></i>
+                        Reset Grid
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="control-group instructions">
+                <h3 class="control-title">
+                    <i class="fas fa-info-circle"></i>
+                    How to Use
+                </h3>
+                <ul class="instructions-list">
+                    <li>Click on any cell to select it</li>
+                    <li>Enter numbers 1-9 using keyboard or number pad</li>
+                    <li>Use arrow keys to navigate between cells</li>
+                    <li>Click "Solve Sudoku" to find the solution</li>
+                    <li>Watch the backtracking algorithm in action</li>
+                </ul>
+            </div>
+            
+            <!-- Algorithm Info -->
+            <div class="algorithm-info">
+                <h3><i class="fas fa-brain"></i> Backtracking Algorithm</h3>
+                <div class="algorithm-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Find empty cell</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Try numbers 1-9</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Check constraints</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">Backtrack if stuck</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>Sudoku Solver using Backtracking Algorithm | Data Structures & Algorithms Project</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="solver.js"></script>
+</body>
+</html>
